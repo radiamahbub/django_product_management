@@ -1,0 +1,84 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Add Product
+{% endblock title %}
+    
+
+{% block content %}
+   <div class="container">
+        <h1 class="m-4 text-center">Product Management System</h1>
+
+        <p class="m-2 text-center">
+            <i class="bi bi-bag-check-fill"></i> Add Products Here
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="productImage" class="form-label">Product Image</label>
+                <input type="file" image="image" class="form-control" id="productImage" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="productName" class="form-label">
+                    Product Name
+                </label>
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    id="productName"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label for="productDescription" class="form-label">
+                    Product Description
+                </label>
+                <textarea
+                    name="description"
+                    class="form-control"
+                    id="productDescription"
+                    rows="4"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="productPrice" class="form-label">
+                    Product Price
+                </label>
+                <input
+                    type="number"
+                    name="price"
+                    class="form-control"
+                    id="productPrice"
+                    step="0.01"
+                    min="0"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label for="productionDate" class="form-label">
+                    Production Date
+                </label>
+                <input
+                    type="datetime-local"
+                    name="production_date"
+                    class="form-control"
+                    id="productionDate"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+        </form>
+    </div>
+{% endblock content %}
