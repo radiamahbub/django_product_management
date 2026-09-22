@@ -23,7 +23,6 @@ def add_product(request):
 
         return redirect('product_list')
 
-
     return render(request, 'add-product.html')
 
 def product_list(request):
@@ -43,8 +42,37 @@ def product_list(request):
 
     return render(request, 'product-list.html', context)
 
+def delete_product(request, p_id):
+    ProductModel.objects.get(id = p_id).delete()
+    return redirect('product_list')
 
+def update_product(request, p_id):
+    product_data = ProductModel.objects.get(id = p_id)
 
+    if request.method == 'POST':
+            name = request.POST.get('name')
+            description = request.POST.get('description')
+            price = request.POST.get('price')
+            production_date = request.POST.get('production_date')
+            image = request.FILES.get('image')
+
+            product_data.name = name
+            product_data.description = description
+            product_data.price = price
+            product_data.production_date = production_date
+
+            if image:
+                product_data.image = image
+
+            product_data.save()
+            
+            return redirect('product_list')
+
+    context = {
+        'product_data':product_data
+    }
+
+    return render(request, 'update_product.html', context)
 
 
 
