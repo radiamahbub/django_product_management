@@ -21,9 +21,10 @@ from products.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'), 
     path('add_product/', add_product, name='add_product'),
     path('product_list/', product_list, name='product_list'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

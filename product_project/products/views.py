@@ -10,7 +10,7 @@ def add_product(request):
         description = request.POST.get('description')
         price = request.POST.get('price')
         production_date = request.POST.get('production_date')
-        image = request.Files.get('image')
+        image = request.FILES.get('image')
         
 
         ProductModel.objects.create(
@@ -30,13 +30,15 @@ def product_list(request):
 
     product_data = ProductModel.objects.all()
 
-    filtered_data = ProductModel.objects.filter(price__gt = 100)
-    keyboard_data = ProductModel.objects.filter(name = "Keyboard")
+    filtered_data = ProductModel.objects.filter(price__gt = 900)
+    keyboard_data = ProductModel.objects.filter(name = "keyboard")
+    mouse_data = ProductModel.objects.filter(name = "Mouse")
 
     context = {
         'product_data':product_data,
         'filtered_data': filtered_data,
         'keyboard_data': keyboard_data,
+        'mouse_data':mouse_data,
     }
 
     return render(request, 'product-list.html', context)
