@@ -14,17 +14,22 @@
     <table class="table table-dark table-striped">
         <thead>
             <tr class="text-center">
+                <th>SL No.</th>
                 <th>Image</th>
                 <th>Name</th>
                 <th>Production Date</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Type</th>
+                <th>Created At</th>
+                <th>Updated At</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for data in product_data %}
             <tr class="text-center">
+                <td>{{forloop.counter}}</td>
                 <td>
                     {% if data.image %}
                         <img src="/{{data.image}}" width="50px" alt="">
@@ -35,8 +40,10 @@
                 <td>{{data.name}}</td>
                 <td>{{data.production_date}}</td>
                 <td>{{data.price}}</td>
-                <th>{{data.description}}</th>
-                
+                <td>{{data.description}}</td>
+                <td>{{data.product_type}}</td>
+                <td>{{data.created_at}}</td>
+                <td>{{data.updated_at}}</td>
                 <td>
                     <a href="{% url 'update_product' data.id %}" class="text-info mx-2">Edit</a>
                     <a href="{% url 'delete_product' data.id %}" class="text-danger">Delete</a>

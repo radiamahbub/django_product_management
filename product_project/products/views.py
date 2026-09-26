@@ -11,6 +11,7 @@ def add_product(request):
         price = request.POST.get('price')
         production_date = request.POST.get('production_date')
         image = request.FILES.get('image')
+        product_type = request.POST.get('product_type')
         
 
         ProductModel.objects.create(
@@ -18,7 +19,8 @@ def add_product(request):
             description = description,
             price = price,
             production_date = production_date,
-            image = image
+            image = image,
+            product_type = product_type
         )
 
         return redirect('product_list')
@@ -55,11 +57,13 @@ def update_product(request, p_id):
             price = request.POST.get('price')
             production_date = request.POST.get('production_date')
             image = request.FILES.get('image')
+            product_type = request.POST.get('product_type')
 
             product_data.name = name
             product_data.description = description
             product_data.price = price
             product_data.production_date = production_date
+            product_data.product_type = product_type
 
             if image:
                 product_data.image = image
