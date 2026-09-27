@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Product Lists
+   PM | Product Lists
 {% endblock title %}
     
 
@@ -14,13 +14,21 @@
     <table class="table table-dark table-striped">
         <thead>
             <tr class="text-center">
+<<<<<<< HEAD
                 <th>SL No.</th>
+=======
+                <th>SL no.</th>
+>>>>>>> 5f9ec7a (new commits)
                 <th>Image</th>
                 <th>Name</th>
                 <th>Production Date</th>
                 <th>Price</th>
                 <th>Description</th>
+<<<<<<< HEAD
                 <th>Type</th>
+=======
+                <th>Product Type</th>
+>>>>>>> 5f9ec7a (new commits)
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Action</th>
@@ -34,9 +42,9 @@
                     {% if data.image %}
                         <img src="/{{data.image}}" width="50px" alt="">
                     {% else %}
-                    No preview    
+                        No preview    
                     {% endif %}
-                    </td>
+                </td>
                 <td>{{data.name}}</td>
                 <td>{{data.production_date}}</td>
                 <td>{{data.price}}</td>

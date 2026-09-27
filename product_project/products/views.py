@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from products.models import *
+from decimal import Decimal
+
 
 def home(request):
     return render(request, 'home.html')
@@ -8,10 +10,14 @@ def add_product(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         description = request.POST.get('description')
-        price = request.POST.get('price')
-        production_date = request.POST.get('production_date')
+        price = Decimal(request.POST.get("price"))
+        production_date = request.POST.get('production_date') or None
         image = request.FILES.get('image')
         product_type = request.POST.get('product_type')
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5f9ec7a (new commits)
         
 
         ProductModel.objects.create(
@@ -20,9 +26,13 @@ def add_product(request):
             price = price,
             production_date = production_date,
             image = image,
+<<<<<<< HEAD
             product_type = product_type
+=======
+            product_type = product_type,
+>>>>>>> 5f9ec7a (new commits)
         )
-
+        
         return redirect('product_list')
 
     return render(request, 'add-product.html')
@@ -54,11 +64,15 @@ def update_product(request, p_id):
     if request.method == 'POST':
             name = request.POST.get('name')
             description = request.POST.get('description')
-            price = request.POST.get('price')
-            production_date = request.POST.get('production_date')
+            price = Decimal(request.POST.get("price"))
+            production_date = request.POST.get('production_date') or None
             image = request.FILES.get('image')
             product_type = request.POST.get('product_type')
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 5f9ec7a (new commits)
             product_data.name = name
             product_data.description = description
             product_data.price = price

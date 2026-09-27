@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Update Product
+   PM | Update Product
 {% endblock title %}
     
 
@@ -29,23 +29,36 @@
 
             <div class="mb-3">
                 <label for="productName" class="form-label">Product Name</label>
+<<<<<<< HEAD
                 <input type="text" name="name" value="{{product_data.name}}" class="form-control" id="productName">
+=======
+                <input type="text" name="name" value="{{product_data.name}}" class="form-control" id="productName" >
+>>>>>>> 5f9ec7a (new commits)
             </div>
 
             <div class="mb-3">
                 <label for="productDescription" class="form-label">Product Description</label>
+<<<<<<< HEAD
                 <textarea name="description" class="form-control" id="productDescription" rows="4">{{product_data.description}}</textarea>
+=======
+                <textarea name="description" class="form-control" id="productDescription" rows="4" >{{product_data.description}}</textarea>
+>>>>>>> 5f9ec7a (new commits)
             </div>
 
             <div class="mb-3">
                 <label for="productPrice" class="form-label">Product Price</label>
+<<<<<<< HEAD
                 <input type="number" name="price" value="{{product_data.price}}" class="form-control" id="productPrice" step="0.01" min="0">
+=======
+                <input type="number" name="price" value="{{product_data.price}}" class="form-control" id="productPrice" step="0.01" min="0" >
+>>>>>>> 5f9ec7a (new commits)
             </div>
 
-            <div class="mb-3">
+           <div class="mb-3">
                 <label for="productionDate" class="form-label">Production Date</label>
                 <input type="date" name="production_date" value="{{product_data.production_date|date:'Y-m-d'}}" class="form-control" id="productionDate">
             </div>
+<<<<<<< HEAD
 
             <div class="mb-3">
                 <label for="productType" class="form-label">Product Type</label>
@@ -70,6 +83,36 @@
                 </select>
             </div>
 
+=======
+            <div class="mb-3">
+                <label for="productType" class="form-label">Product Type</label>
+                <select class="form-select" name="product_type" aria-label="Default select example">
+                <option  value="">Select from here</option>
+                <option value="Fruits"
+                
+                {% if product_data.product_type == "Fruits" %}
+                    selected
+                {% endif %}
+                    
+                >Fruits</option>
+
+                <option value="Grocery"
+
+                {% if product_data.product_type == "Grocery" %}
+                    selected
+                {% endif %}
+
+                >Groceries</option>
+
+                <option value="Fashion"
+                {% if product_data.product_type == "Fashion" %}
+                    selected
+                {% endif %}
+                >Fashion</option>
+                </select>
+            </div>
+            
+>>>>>>> 5f9ec7a (new commits)
             <div class="d-grid gap-2">
             <button type="submit" class="btn btn-outline-info text-info">
                 Edit
